@@ -5,26 +5,45 @@ class Tree
 		this.root;
 		this.totalNodes = 0;
 	}
-}
-
-Tree.prototype.addNode = function(value){
-	this.totalNodes++;
-	if(this.root){
-		this.root.addNode(value);
-	}else{
-		this.root = new Node(value);
+	
+	addNode(value)
+	{
+		this.totalNodes++;
+		if(this.root){
+			this.root.addNode(value);
+		}else{
+			this.root = new Node(value);
+		}
+		return this;
 	}
-}
-
-Tree.prototype.traverse = function(){
-	let nodeArray = [];
-	return this.root.traverse(nodeArray);
-}
-
-Tree.prototype.search = function(value){
-	const nodeList = this.traverse();
-	for(let i = 0; i < nodeList.length; i++){
-		if(nodeList[i].value == value) return nodeList[i];
+	
+	addNodes(array)
+	{
+		array.forEach((i)=>{
+			this.addNode(i);
+		})
+		return this;
 	}
-	return null;
+	
+	traverse()
+	{
+		let nodeArray = [];
+		return this.root.traverse(nodeArray);
+	}
+	
+	search()
+	{
+		const nodeList = this.traverse();
+		for(let i = 0; i < nodeList.length; i++){
+			if(nodeList[i].value == value) return nodeList[i];
+		}
+		return null;
+	}
+	
+	randomFill(min, max, amount)
+	{
+		for(let i = 0; i < amount; i++){
+			this.addNode(Math.round(min + Math.random() * max))
+		}
+	}
 }
