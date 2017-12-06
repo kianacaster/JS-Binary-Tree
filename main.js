@@ -1,1 +1,0 @@
-const tree = new Tree();
