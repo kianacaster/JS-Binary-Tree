@@ -45,5 +45,6 @@ class Tree
 		for(let i = 0; i < amount; i++){
 			this.addNode(Math.round(min + Math.random() * max))
 		}
+		return this;
 	}
 }
