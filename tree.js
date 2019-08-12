@@ -31,7 +31,7 @@ class Tree
 		return this.root.traverse(nodeArray);
 	}
 	
-	search()
+	search(value)
 	{
 		const nodeList = this.traverse();
 		for(let i = 0; i < nodeList.length; i++){
